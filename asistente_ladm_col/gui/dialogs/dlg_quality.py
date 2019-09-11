@@ -31,6 +31,7 @@ from ...config.table_mapping_config import (BOUNDARY_POINT_TABLE,
                                             CONTROL_POINT_TABLE,
                                             PLOT_TABLE,
                                             BUILDING_TABLE,
+                                            BUILDING_UNIT_TABLE,
                                             RIGHT_OF_WAY_TABLE)
 from ...utils import get_ui_class
 
@@ -101,6 +102,9 @@ class QualityDialog(QDialog, DIALOG_UI):
                 },{
                     'id': 'check_overlaps_in_buildings',
                     'text': translated_strings.CHECK_OVERLAPS_IN_BUILDINGS
+                },{
+                    'id': 'check_overlaps_in_building_units',
+                    'text': translated_strings.CHECK_OVERLAPS_IN_BUILDING_UNITS
                 },{
                     'id': 'check_overlaps_in_rights_of_way',
                     'text': translated_strings.CHECK_OVERLAPS_IN_RIGHTS_OF_WAY
@@ -243,6 +247,8 @@ class QualityDialog(QDialog, DIALOG_UI):
                     self.quality.check_overlapping_polygons(self._db, polygon_layer_name=PLOT_TABLE, rule_name=rule_name)
                 elif id == 'check_overlaps_in_buildings':
                     self.quality.check_overlapping_polygons(self._db, polygon_layer_name=BUILDING_TABLE, rule_name=rule_name)
+                elif id == 'check_overlaps_in_building_units':
+                    self.quality.check_overlapping_polygons(self._db, polygon_layer_name=BUILDING_UNIT_TABLE, rule_name=rule_name)
                 elif id == 'check_overlaps_in_rights_of_way':
                     self.quality.check_overlapping_polygons(self._db, polygon_layer_name=RIGHT_OF_WAY_TABLE, rule_name=rule_name)
                 elif id == 'check_plots_covered_by_boundaries':

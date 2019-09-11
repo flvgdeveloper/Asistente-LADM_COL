@@ -1219,6 +1219,8 @@ class QualityUtils(QObject):
                 error_layer_name = translated_strings.CHECK_OVERLAPS_IN_PLOTS
             elif polygon_layer_name == BUILDING_TABLE:
                 error_layer_name = translated_strings.CHECK_OVERLAPS_IN_BUILDINGS
+            elif polygon_layer_name == BUILDING_UNIT_TABLE:
+                error_layer_name = translated_strings.CHECK_OVERLAPS_IN_BUILDING_UNITS
             elif polygon_layer_name == RIGHT_OF_WAY_TABLE:
                 error_layer_name = translated_strings.CHECK_OVERLAPS_IN_RIGHTS_OF_WAY
 
