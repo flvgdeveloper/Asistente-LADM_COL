@@ -42,6 +42,8 @@ from ...config.general_config import (INTERLIS_TEST_METADATA_TABLE_PG,
                                       PLUGIN_NAME)
 from ...config.table_mapping_config import (ID_FIELD,
                                             PARCEL_TABLE,
+                                            PLOT_TABLE,
+                                            PLOT_VALUATION_FIELD,
                                             DEPARTMENT_FIELD,
                                             MUNICIPALITY_FIELD,
                                             ZONE_FIELD,
@@ -88,6 +90,11 @@ class PGConnector(DBConnector):
 
         # Logical validations queries
         self.logic_validation_queries = {
+            'PLOT_VALUATION_GREAT_THAN_100': {
+                'query': """SELECT {id} FROM {schema}.{table} p WHERE (p.{field} > 100)""".format(schema=self.schema, table=PLOT_TABLE, id=ID_FIELD, field=PLOT_VALUATION_FIELD),
+                'desc_error': 'Plots with valuations great than 100',
+                'table_name': QCoreApplication.translate("LogicChecksConfigStrings", "Logic Consistency Errors in table '{table}'").format(table=PLOT_TABLE),
+                'table': PLOT_TABLE},
             'DEPARTMENT_CODE_VALIDATION': {
                 'query': """SELECT {id} FROM {schema}.{table} p WHERE (p.{field} IS NOT NULL AND (length(p.{field}) !=2 OR (p.{field}~ '^[0-9]*$') = FALSE))""".format(schema=self.schema, table=PARCEL_TABLE, id=ID_FIELD, field=DEPARTMENT_FIELD),
                 'desc_error': 'Department code must have two numerical characters.',

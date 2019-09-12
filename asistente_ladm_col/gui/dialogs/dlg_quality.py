@@ -140,6 +140,9 @@ class QualityDialog(QDialog, DIALOG_UI):
                     'id': 'find_duplicate_records_in_a_table',
                     'text': translated_strings.FIND_DUPLICATE_RECORDS_IN_A_TABLE
                 }, {
+                    'id': 'check_plot_valuation_great_than_100',
+                    'text': translated_strings.CHECK_PLOT_VALUATION_GREAT_THAN_100
+                }, {
                     'id': 'check_fraction_sum_for_party_groups',
                     'text': translated_strings.CHECK_FRACTION_SUM_FOR_PARTY_GROUPS
                 }, {
@@ -265,6 +268,10 @@ class QualityDialog(QDialog, DIALOG_UI):
                     self.quality.check_parcel_right_relationship(self._db, rule_name=rule_name)
                 elif id == 'find_duplicate_records_in_a_table':
                     self.quality.find_duplicate_records_in_a_table(self._db, rule_name=rule_name)
+                elif id == 'check_plot_valuation_great_than_100':
+                    print("*************************************************")
+                    self.quality.basic_logic_validations(self._db, rule='PLOT_VALUATION_GREAT_THAN_100', rule_name=rule_name)
+                    print("*************************************************")
                 elif id == 'check_fraction_sum_for_party_groups':
                     self.quality.check_fraction_sum_for_party_groups(self._db, rule_name=rule_name)
                 elif id == 'check_department_code_has_two_numerical_characters':

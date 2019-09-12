@@ -298,6 +298,7 @@ class TranslatableConfigStrings(QObject):
 
         # Logic consistency checks
         self.CHECK_PARCEL_RIGHT_RELATIONSHIP = QCoreApplication.translate("TranslatableConfigStrings", "Parcel should have one and only one Right")
+        self.CHECK_PLOT_VALUATION_GREAT_THAN_100 = QCoreApplication.translate("TranslatableConfigStrings", "Check plot valuation great than 100")
         self.CHECK_FRACTION_SUM_FOR_PARTY_GROUPS = QCoreApplication.translate("TranslatableConfigStrings", "Group Party Fractions should sum 1")
         self.FIND_DUPLICATE_RECORDS_IN_A_TABLE = QCoreApplication.translate("TranslatableConfigStrings", "Table records should not be repeated")
 
